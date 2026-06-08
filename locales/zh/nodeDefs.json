@@ -1,0 +1,288 @@
+{
+  "RT_LazySwitch": {
+    "display_name": "RT惰性开关",
+    "inputs": {
+      "condition": { "name": "条件" },
+      "on_true": { "name": "条件为真" },
+      "on_false": { "name": "条件为假" }
+    },
+    "outputs": {
+      "output": { "name": "输出" }
+    }
+  },
+  "RT_LazySwitch2way": {
+    "display_name": "RT双路惰性开关",
+    "inputs": {
+      "condition": { "name": "条件" },
+      "on_true_1": { "name": "条件为真①" },
+      "on_true_2": { "name": "条件为真②" },
+      "on_false_1": { "name": "条件为假①" },
+      "on_false_2": { "name": "条件为假②" }
+    },
+    "outputs": {
+      "output1": { "name": "输出①" },
+      "output2": { "name": "输出②" }
+    }
+  },
+  "RT_ResolutionSelector": {
+    "display_name": "RT分辨率选择器",
+    "inputs": {
+      "resolution": { "name": "分辨率" }
+    },
+    "outputs": {
+      "resolution": { "name": "分辨率" }
+    }
+  },
+  "RT_AspectRatioSelector": {
+    "display_name": "RT比例选择器",
+    "inputs": {
+      "aspect_ratio": { "name": "宽高比" }
+    },
+    "outputs": {
+      "aspect_ratio": { "name": "宽高比" }
+    }
+  },
+  "RT_AspectRatioDetector": {
+    "display_name": "RT比例检测器",
+    "inputs": {
+      "image": { "name": "图像" }
+    },
+    "outputs": {
+      "aspect_ratio": { "name": "宽高比" }
+    }
+  },
+  "RT_MaskExpand": {
+    "display_name": "RT遮罩扩展/收缩",
+    "inputs": {
+      "mask": { "name": "遮罩" },
+      "expand": { "name": "扩展量" },
+      "tapered_corners": { "name": "渐变角落" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "mask": { "name": "遮罩" }
+    }
+  },
+  "RT_MaskFeather": {
+    "display_name": "RT遮罩高斯羽化",
+    "inputs": {
+      "mask": { "name": "遮罩" },
+      "kernel": { "name": "羽化范围" },
+      "sigma": { "name": "羽化强度" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "mask": { "name": "遮罩" }
+    }
+  },
+  "RT_SeparateMasks": {
+    "display_name": "RT遮罩分离",
+    "inputs": {
+      "masks": { "name": "遮罩序列" },
+      "area_threshold": { "name": "面积阈值" },
+      "max_tracks": { "name": "最大跟踪数" }
+    },
+    "outputs": {
+      "all_tracks": { "name": "全部轨迹" },
+      "num_tracks": { "name": "轨迹数量" }
+    }
+  },
+  "RT_GetTrack": {
+    "display_name": "RT获取Track",
+    "inputs": {
+      "all_tracks": { "name": "全部轨迹" },
+      "track_index": { "name": "轨迹索引" }
+    },
+    "outputs": {
+      "track": { "name": "轨迹" }
+    }
+  },
+  "RT_BatchMask": {
+    "display_name": "RT复制遮罩批次",
+    "inputs": {
+      "mask": { "name": "遮罩" },
+      "count": { "name": "复制数量" }
+    },
+    "outputs": {
+      "masks": { "name": "遮罩" }
+    }
+  },
+  "RT_GetMaskFromBatch": {
+    "display_name": "RT从批次获取遮罩",
+    "inputs": {
+      "masks": { "name": "遮罩批次" },
+      "batch_index": { "name": "批次索引" },
+      "length": { "name": "获取数量" }
+    },
+    "outputs": {
+      "mask": { "name": "遮罩" }
+    }
+  },
+  "RT_ImageToMask": {
+    "display_name": "RT图像通道转遮罩",
+    "inputs": {
+      "image": { "name": "图像" },
+      "channel": { "name": "通道" },
+      "black_point": { "name": "黑点" },
+      "white_point": { "name": "白点" },
+      "gamma": { "name": "伽马" },
+      "invert": { "name": "反转遮罩" },
+      "mask": { "name": "遮罩" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "mask": { "name": "遮罩" }
+    }
+  },
+  "RT_MaskToImage": {
+    "display_name": "RT遮罩转图像",
+    "inputs": {
+      "mask": { "name": "遮罩" },
+      "color": { "name": "颜色" },
+      "invert": { "name": "反转遮罩" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "image": { "name": "图像" }
+    }
+  },
+  "RT_BBoxToMask": {
+    "display_name": "RTBBox转遮罩",
+    "inputs": {
+      "image": { "name": "图像" },
+      "bboxes": { "name": "边界框" },
+      "dilation": { "name": "扩展像素" },
+      "feather": { "name": "羽化半径" },
+      "chunk_size": { "name": "分块大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "mask": { "name": "遮罩" }
+    }
+  },
+  "RT_MaskContour": {
+    "display_name": "RT遮罩描边",
+    "inputs": {
+      "images": { "name": "图像" },
+      "mask": { "name": "遮罩" },
+      "line_width": { "name": "线宽" }
+    },
+    "outputs": {
+      "images": { "name": "图像" }
+    }
+  },
+  "RT_DrawMaskOnImage": {
+    "display_name": "RT遮罩绘制",
+    "inputs": {
+      "image": { "name": "图像" },
+      "mask": { "name": "遮罩" },
+      "color": { "name": "颜色" },
+      "opacity": { "name": "不透明度" },
+      "device": { "name": "设备" },
+      "batch_size": { "name": "批次大小" }
+    },
+    "outputs": {
+      "image": { "name": "图像" }
+    }
+  },
+  "RT_JoinStringMulti": {
+    "display_name": "RT多字符串连接",
+    "inputs": {
+      "inputcount": { "name": "输入数量" },
+      "delimiter": { "name": "分隔符" },
+      "clean_whitespace": { "name": "清理空白" },
+      "return_list": { "name": "返回列表" },
+      "string_1": { "name": "字符串①" },
+      "string_2": { "name": "字符串②" }
+    },
+    "outputs": {
+      "string": { "name": "字符串" }
+    }
+  },
+  "RT_JoinStrings": {
+    "display_name": "RT双字符串连接",
+    "inputs": {
+      "delimiter": { "name": "分隔符" },
+      "clean_whitespace": { "name": "清理空白" },
+      "string1": { "name": "字符串①" },
+      "string2": { "name": "字符串②" }
+    },
+    "outputs": {
+      "string": { "name": "字符串" }
+    }
+  },
+  "RT_MathExpression": {
+    "display_name": "RT数学表达式",
+    "inputs": {
+      "expression": { "name": "表达式" },
+      "inputcount": { "name": "输入数量" },
+      "a": { "name": "a" },
+      "b": { "name": "b" }
+    },
+    "outputs": {
+      "float": { "name": "浮点" },
+      "int": { "name": "整数" },
+      "bool": { "name": "布尔" }
+    }
+  },
+  "RT_ColorMatch": {
+    "display_name": "RT颜色匹配",
+    "inputs": {
+      "image_ref": { "name": "参考图像" },
+      "image_target": { "name": "目标图像" },
+      "method": { "name": "算法" },
+      "strength": { "name": "强度" },
+      "device": { "name": "设备" },
+      "batch_size": { "name": "批次大小" }
+    },
+    "outputs": {
+      "image": { "name": "图像" }
+    }
+  },
+  "RT_PoissonBlend": {
+    "display_name": "RT泊松融合",
+    "inputs": {
+      "original": { "name": "原图" },
+      "inpaint": { "name": "修复图" },
+      "mask": { "name": "遮罩" },
+      "poisson_iters": { "name": "迭代次数" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "image": { "name": "图像" }
+    }
+  },
+  "RT_PoissonBlendV2": {
+    "display_name": "RT泊松融合V2",
+    "inputs": {
+      "original": { "name": "原图" },
+      "inpaint": { "name": "修复图" },
+      "mask": { "name": "遮罩" },
+      "poisson_iters": { "name": "迭代次数" },
+      "transition_width": { "name": "过渡带宽度" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "image": { "name": "图像" }
+    }
+  },
+  "RT_BlendInpaint": {
+    "display_name": "RT遮罩混合",
+    "inputs": {
+      "original": { "name": "原图" },
+      "inpaint": { "name": "修复图" },
+      "mask": { "name": "遮罩" },
+      "batch_size": { "name": "批次大小" },
+      "device": { "name": "设备" }
+    },
+    "outputs": {
+      "image": { "name": "图像" }
+    }
+  }
+}
